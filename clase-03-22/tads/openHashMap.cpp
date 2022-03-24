@@ -9,6 +9,8 @@
 
 #include <vector>
 
+// auto map = new OpenHashMap<std::string, int>
+
 template <class K, class V, class Hash = std::hash<K>>
 class OpenHashMap : public Map<K, V>
 {
@@ -29,7 +31,7 @@ public:
     this->elemCount++;
     int pos = this->findPos(key);
     std::vector<Pair<K, V>> *list = this->arr[pos];
-    if (vector == nullptr)
+    if (list == nullptr)
     {
       list = new std::vector<Pair<K, V>>();
       arr[pos] = list;
@@ -42,7 +44,7 @@ public:
   {
     int pos = this->findPos(key);
     auto list = this->arr[pos];
-    if (list == null)
+    if (list == nullptr)
     {
       return false;
     }
@@ -61,6 +63,7 @@ public:
   V get(K key) override
   {
     assert(this->contains(key));
+    // TODO: Implementar funcion
     return V();
   }
 
@@ -80,8 +83,9 @@ public:
 
 private:
   Hash hashCode;
-  // es una array de punteros a vectoras
-  std::vector<Pair<K, V>> **arr;
+  typedef ArrayDeListas std::vector<Pair<K, V>> **
+      // es una array de punteros a vectoras
+      ArrayDeListas arr;
   int arrSize;
   int elemCount;
 

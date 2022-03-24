@@ -8,7 +8,7 @@ public:
 
   virtual bool contains(K key) = 0;
 
-  virtual V get(K key) throws Exception = 0;
+  virtual V get(K key) = 0;
 
   virtual void delete (K key) = 0;
 

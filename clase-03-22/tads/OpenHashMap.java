@@ -24,14 +24,6 @@ public class OpenHashMap<K, V> implements Map<K, V> {
         public boolean equals(Object other) {
             return this.key.equals(((Pair) other).key);
         }
-
-        // c++
-        /*
-         * bool operator==(Pair<K,V> other)
-         * {
-         * this->key = other.key;
-         * }
-         */
     }
 
     @Override
